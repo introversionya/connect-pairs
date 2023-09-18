@@ -1,5 +1,5 @@
 <template>
-  <div class="board-item">
+  <div :class="'board-item ' + (selected ? 'selected' : '') + (closed ? 'closed ' : '')">
     {{ icon ? icon : '' }}
   </div>
 </template>
@@ -13,6 +13,16 @@ export default {
       type: Number,
       required: false,
       default: 0
+    },
+    selected: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    closed: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   }
 }
@@ -23,5 +33,13 @@ export default {
   border: 1px solid #2c3e50;
   width: 48px;
   height: 48px;
+}
+
+.selected {
+  background-color: #00ff0077;
+}
+
+.closed {
+  background-color: #00ff0022;
 }
 </style>
